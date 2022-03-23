@@ -26,6 +26,7 @@ public class ProductServiceImpl implements ProductService{
         ProductEntity productEntity = new ProductEntity ();
         Iterable<ProductEntity> productEntities = productRepository.findAll();
 
+
         int productCount = 0;
         String productName = product.getName();
         for(ProductEntity prod : productEntities){
@@ -51,6 +52,28 @@ public class ProductServiceImpl implements ProductService{
         if(productCount>0){
             SellerProduct sp = new SellerProduct(product.getSellerId(),productEntity.getId(),product.getPrice(),product.getStock());
             feignController.addProductBySeller(sp);
+=======
+
+        int productCount = 0;
+        String productName = product.getName();
+        for(ProductEntity prod : productEntities){
+            if(productName.equals(prod.getName())){
+//                feignController.addToSeller();
+                productCount++;
+                break;
+            }
+        }
+        if(productCount==0){
+            productEntity.setStock(product.getStock());
+                productEntity.setPrice(product.getPrice());
+                productEntity.setImage(product.getImage());
+                productEntity.setDetails(product.getDetails());
+                productEntity.setName(product.getName());
+                productEntity.setId(product.getId());
+                productEntity.setCategory (product.getCategory ());
+                productEntity.setSellerId (product.getSellerId ());
+                productRepository.save(productEntity);
+
         }
 
     }
