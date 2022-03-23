@@ -17,11 +17,11 @@ public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id", nullable = false)
-    private Integer id;
+    private Long id;
 
     @NotNull
     private String name,details,image,category;
-    private double price;
+    private Double price;
     private Long stock;
     private Long sellerId;
 
@@ -29,7 +29,7 @@ public class ProductEntity {
 
 //    public ProductEntity(List<ProductEntity> productByName){}
 
-    public ProductEntity(@NotNull Integer id, @NotNull String name, @NotNull String details, @NotNull String image,@NotNull String category, double price, Long stock, Long sellerId) {
+    public ProductEntity(@NotNull Long id, @NotNull String name, @NotNull String details, @NotNull String image,@NotNull String category, Double price, Long stock, Long sellerId) {
         this.id = id;
         this.name = name;
         this.details = details;
@@ -40,11 +40,11 @@ public class ProductEntity {
         this.sellerId = sellerId;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
