@@ -6,13 +6,13 @@ import java.util.List;
 
 public class Product {
 
-    private Integer id;
+    private Long id;
     private Long sellerId;  //secondary key
     private String name;
     private String details;
     private String image;
     private String category;
-    private double price;
+    private Double price;
     private Long stock;
 
 //    public Product(List<ProductEntity> productByCategory){}
@@ -20,7 +20,7 @@ public class Product {
 
     public Product() {}
 
-    public Product(Integer id, Long sellerId, String name, String details, String image,String category, double price, Long stock) {
+    public Product(Long id, Long sellerId, String name, String details, String image,String category, Double price, Long stock) {
         this.id = id;
         this.sellerId = sellerId;
         this.name = name;
@@ -37,11 +37,11 @@ public class Product {
 //
 //    }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -85,11 +85,11 @@ public class Product {
         this.category = category;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ProductRepository extends CrudRepository<ProductEntity,Integer> {
+public interface ProductRepository extends CrudRepository<ProductEntity,Long> {
 
 //    @Query("SELECT pd from productDetails pd where pd.name=?1")
 //     public List<ProductEntity> getProductByName(String name);
