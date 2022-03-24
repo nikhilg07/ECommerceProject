@@ -34,6 +34,29 @@ public class CartServiceImpl implements CartService{
 //
 //
 //    }
+    
+    
+    @Override
+    public void removeProduct(Long userId,Long productId , Long sellerId) {
+        Optional<CartEntity> optionalCartEntity = cartRepository.findByUserIdAndProductIdAndSellerId(userId, productId,sellerId);
+        if(optionalCartEntity.isPresent()) {
+            CartEntity cartEntity = optionalCartEntity.get();
+
+            if(cartEntity.getQuantity()==1){
+                cartRepository.delete(cartEntity);
+            }
+            else{
+                cartEntity.setQuantity(cartEntity.getQuantity()-1);
+                cartRepository.save(cartEntity);
+
+            }
+
+
+        }
+
+
+    }
+
 
 
     @Override
