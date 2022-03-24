@@ -20,6 +20,12 @@ public class CartController {
     public void add(@RequestParam Long cartId ,@RequestParam Long userId,@RequestParam Long productId,@RequestParam Long sellerId){
         cartService.addProduct(cartId,userId,productId,sellerId);
     }
+    
+    
+    @PostMapping(value = "/removeProduct", consumes ="application/json")
+    public void remove(@RequestParam Long cartId ,@RequestParam Long userId,@RequestParam Long productId,@RequestParam Long sellerId){
+        cartService.removeProduct(userId,productId,sellerId);
+    }
 
 
 
